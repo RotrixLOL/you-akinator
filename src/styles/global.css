@@ -1,0 +1,23 @@
+body {
+	font-family: system-ui, sans-serif;
+}
+
+.bg-black-card {
+	@apply flex justify-center align-middle w-full bg-zinc-900 mx-auto rounded-lg;
+}
+
+.blue-gradient {
+	@apply text-8xl font-bold drop-shadow-lg bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent;
+}
+
+.h1 {
+	@apply text-white text-5xl;
+}
+
+.message-left {
+	@apply justify-self-start;
+}
+
+.message-right {
+	@apply justify-self-end;
+}

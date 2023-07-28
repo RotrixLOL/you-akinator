@@ -1,36 +1,45 @@
 --- 
-interface Props {
-	title: string;
-}
+import { Toaster } from "react-hot-toast";
 
-const { title } = Astro.props;
+import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
+
+import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Primary Meta Tags -->
+		<title>You Akinator | Make questions to guess the word</title>
+		<meta name="title" content="You Akinator | Make questions to guess the word" />
+		<meta name="description" content="In this game, you are akinator, and you have to guess the secret word that the AI is thinking in." />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://youakinator.rotrixx.eu" />
+		<meta property="og:title" content="You Akinator | Make questions to guess the word" />
+		<meta property="og:description" content="In this game, you are akinator, and you have to guess the secret word that the AI is thinking in." />
+		<meta property="og:image" content="/banner.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://youakinator.rotrixx.eu" />
+		<meta property="twitter:title" content="You Akinator | Make questions to guess the word" />
+		<meta property="twitter:description" content="In this game, you are akinator, and you have to guess the secret word that the AI is thinking in." />
+		<meta property="twitter:image" content="/banner.png" />
 	</head>
 	<body>
-		<slot />
+		<div class="flex flex-col justify-center">
+			<Header client:load />
+			<div class="xs:max-w-3xl md:max-w-7xl mt-8 flex justify-center self-center">
+				<slot />
+			</div>	
+		</div>
+		<Footer client:load />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
